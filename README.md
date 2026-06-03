@@ -1,4 +1,6 @@
-# IKIGAI
+# Find My IKIGAI
+
+![Find My IKIGAI Demo](assets/demo.gif)
 
 A simple Streamlit app built as an experiment with LLMs using LangChain and LangSmith.
 
@@ -13,5 +15,3 @@ A simple Streamlit app built as an experiment with LLMs using LangChain and Lang
 The goal was to understand the basic LLM application flow:
 
 Input → Prompt → LLM → Response
-
-[Watch Demo](assets/demo.mp4)

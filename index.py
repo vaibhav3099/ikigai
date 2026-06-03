@@ -28,7 +28,7 @@ if submitted:
     {worldNeed}
     {quesPaidFor}
     {paidFor}
-    What is my ikigai, be very concise
+    What is my ikigai ? explain with reason
     """
     res = chain.invoke({"query": query})
 

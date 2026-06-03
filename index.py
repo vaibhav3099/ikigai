@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 
 load_dotenv()
-st.title("IKIGAI")
+st.title("Find my IKIGAI")
 quesLove = "What do you love ?"
 quesGoodAt = "What are you good at ?"
 quesWorldNeed = "What does the world need ?"

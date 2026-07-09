@@ -1,17 +1,55 @@
 # Find My IKIGAI
 
+Streamlit app that takes answers to the 4 IKIGAI questions and asks an LLM to synthesize them into your ikigai, with reasoning.
+
+## Demo
 ![Find My IKIGAI Demo](assets/demo.gif)
 
-A simple Streamlit app built as an experiment with LLMs using LangChain and LangSmith.
+## Workflow
 
-## What it does
+1. User fills a form with 4 answers (love, good at, world needs, paid for)
+2. On submit, answers get merged into one prompt
+3. Prompt runs through a LangChain chain
+4. Result is rendered on the page
 
-- Takes 4 user inputs
-- Sends them to an LLM
-- Generates an IKIGAI-style response
+## The chain
 
-## Purpose
+```python
+chain = promptTemplate | llm | OutputParser
+```
 
-The goal was to understand the basic LLM application flow:
+- `promptTemplate` — system persona + user query, both swappable
+- `llm` — Gemini model
+- `OutputParser` — returns plain text instead of a message object
 
-Input → Prompt → LLM → Response
+`get_llm_chain(system_text)` builds this chain, so persona/behavior can change (e.g. "be very concise") without touching the prompt structure. `index.py` just calls `chain.invoke({"query": ...})` — it never deals with prompts or models directly.
+
+## Files
+
+- `index.py` — UI, form, prompt building, rendering
+- `llm.py` — chain factory + standalone test (`python llm.py`)
+
+## Setup
+
+```bash
+pip install streamlit langchain-core langchain-google-genai python-dotenv
+```
+
+`.env`:
+```
+GOOGLE_API_KEY=your_key_here
+```
+
+## Run
+
+```bash
+streamlit run index.py
+```
+
+## Tech Stack
+
+- Streamlit
+- LangChain
+- Google Gemini (via langchain-google-genai)
+
+

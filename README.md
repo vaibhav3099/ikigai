@@ -1,6 +1,7 @@
 # Find My IKIGAI
 
-Streamlit app that takes answers to the 4 IKIGAI questions and asks an LLM to synthesize them into your ikigai, with reasoning.
+- Built a small Streamlit app - IKIGAI as a quick experiment with LLMs with langchain and langsmith.
+- It takes 4 simple inputs, sends them to an LLM, and displays the response. Nothing complex, just a minimal setup to understand LLM flow.
 
 ## Demo
 ![Find My IKIGAI Demo](assets/demo.gif)
